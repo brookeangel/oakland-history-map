@@ -2,13 +2,14 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <p>A map for understanding Oakland's past</p>
-    <Link to="/credits">Credits</Link>
+    <SEO title="Credits" />
+    <h2>Credits</h2>
+    <ul>
+      <li>Oak Tree by Emily Haasch from the Noun Project</li>
+    </ul>
   </Layout>
 )
 
