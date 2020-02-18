@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Oakland History Map`,
-    description: `A map for understanding Oakland's past`,
+    description: `Understanding Oakland's present through its past`,
     author: `@brookeangel`,
   },
   plugins: [
