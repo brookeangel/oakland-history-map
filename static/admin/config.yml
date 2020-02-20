@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: brookeangel/oakland-history-map
+media_folder: static/assets
+public_folder: /assets
+collections:
+  - name: sites
+    label: Site
+    folder: sites
+    create: true
+    fields:
+      - { name: name, label: Name }
+      - { name: entry-date, label: Entry Date, widget: datetime }
+      - { name: start-date, label: Start Date, widget: date }
+      - { name: end-date, label: End Date, widget: date }
+      - { name: description, label: Description, widget: markdown }
+      - { name: location, label: Location, widget: map }
