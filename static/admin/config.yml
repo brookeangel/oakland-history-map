@@ -10,8 +10,10 @@ collections:
     create: true
     fields:
       - { name: name, label: Name }
-      - { name: entry-date, label: Entry Date, widget: datetime }
-      - { name: start-date, label: Start Date, widget: date }
-      - { name: end-date, label: End Date, widget: date }
-      - { name: description, label: Description, widget: markdown }
+      - { name: path, label: Path }
+      - { name: entryDate, label: Entry Date, widget: datetime }
+      - { name: startDate, label: Start Date, widget: date, required: false }
+      - { name: endDate, label: End Date, widget: date, required: false }
       - { name: location, label: Location, widget: map }
+      - { name: description, label: Description, widget: markdown }
+      - { name: sources, label: Sources, widget: markdown }
