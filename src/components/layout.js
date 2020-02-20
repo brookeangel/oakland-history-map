@@ -8,23 +8,41 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import Header from "../components/header"
+import { useStaticQuery, graphql } from "gatsby"
 
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `)
+
   return (
     <div
       style={{
         position: "relative",
       }}
     >
+      <Header 
+        siteTitle={data.site.siteMetadata.title} 
+        siteDescription={data.site.siteMetadata.description} />
       <main>{children}</main>
       <footer
         className="overlay"
         style={{
           position: "absolute",
-          bottom: "50px",
-          right: "50px",
+          bottom: 0,
+          right: 0,
+          left: 0,
+          textAlign: "right",
           zIndex: 1,
         }}
       >
