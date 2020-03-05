@@ -1,6 +1,16 @@
 import React from "react"
 import 'leaflet/dist/leaflet.css'
-import { Map, TileLayer } from 'react-leaflet'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
+
+// Required to make Leaflet default icon work ¯\_(ツ)_/¯
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+});
 
 class OaklandMap extends React.Component { 
   render() {
@@ -14,12 +24,27 @@ class OaklandMap extends React.Component {
       position: "relative",
       zIndex: 0,
     };
+    const sites = this.props.sites.sites;
+    const markers = sites.map((site) => {
+      const coordinates = JSON.parse(site.location).coordinates;
+      // For some reason, Netlify switches Lat and Long from the rest of the world
+      const lat = coordinates[1];
+      const long = coordinates[0];
+      return (
+        <Marker key={site.id} position={[lat, long]}>
+          <Popup>
+            {site.name}
+          </Popup>
+        </Marker>
+      )
+    })
     return(
       <Map center={position} zoom={zoom} style={styles}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        {markers}
       </Map>
     );
   }
