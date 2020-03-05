@@ -32,7 +32,15 @@ class OaklandMap extends React.Component {
       const lat = coordinates[1];
       const long = coordinates[0];
       return (
-        <Marker onClick={() => { navigate(site.path) }} key={site.id} position={[lat, long]}>
+        <Marker 
+          key={site.id} 
+          position={[lat, long]}
+          onMouseOver={(e) => { e.target.openPopup(); }}
+          onFocus={(e) => { e.target.openPopup() }}
+          onMouseOut={(e) => { e.target.closePopup(); }}
+          onBlur={(e) => { e.target.closePopup(); }}
+          onClick={() => { navigate(site.path) }}
+        >
             <Popup>
               {site.name}
             </Popup>
