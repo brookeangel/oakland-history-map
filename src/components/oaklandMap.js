@@ -1,6 +1,7 @@
 import React from "react"
 import 'leaflet/dist/leaflet.css'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { navigate } from "gatsby"
 import L from 'leaflet'
 
 // Required to make Leaflet default icon work ¯\_(ツ)_/¯
@@ -31,11 +32,11 @@ class OaklandMap extends React.Component {
       const lat = coordinates[1];
       const long = coordinates[0];
       return (
-        <Marker key={site.id} position={[lat, long]}>
-          <Popup>
-            {site.name}
-          </Popup>
-        </Marker>
+        <Marker onClick={() => { navigate(site.path) }} key={site.id} position={[lat, long]}>
+            <Popup>
+              {site.name}
+            </Popup>
+          </Marker>
       )
     })
     return(
