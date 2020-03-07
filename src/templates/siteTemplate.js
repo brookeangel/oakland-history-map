@@ -1,15 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
 
 export default function Template({ data }) {
-  console.log(data)
   const { markdownRemark } = data
   const { frontmatter } = markdownRemark
   return (
-    <div>
-      <h1>{frontmatter.name}</h1>
-      <p>{frontmatter.description}</p>
-    </div>
+    <Layout>
+      <div>
+        <h1>{frontmatter.name}</h1>
+        <p>{frontmatter.description}</p>
+      </div>
+    </Layout>
   )
 }
 export const pageQuery = graphql`

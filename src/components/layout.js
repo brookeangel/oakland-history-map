@@ -9,21 +9,40 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Header from "../components/header"
+import OaklandMap from "../components/oaklandMap"
 import { useStaticQuery, graphql } from "gatsby"
 
 import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query {
       site {
         siteMetadata {
           title
           description
         }
       }
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            frontmatter {
+              path
+              name
+              location
+            }
+          }
+        }
+      }
     }
   `)
+
+  const sites = data.allMarkdownRemark.edges.map((edge) => {
+    return Object.assign(edge.node.frontmatter, {
+      id: edge.node.id
+    });
+  });
 
   return (
     <div
@@ -34,7 +53,23 @@ const Layout = ({ children }) => {
       <Header 
         siteTitle={data.site.siteMetadata.title} 
         siteDescription={data.site.siteMetadata.description} />
-      <main>{children}</main>
+      <main>
+        <OaklandMap style={{zIndex: 0}} sites={{sites}} />
+        <div
+          className="overlay"
+          style={{
+            zIndex: 1,
+            position: "absolute",
+            bottom: 0,
+            top: 0,
+            right: 0,
+            width: "30em",
+            maxWidth: "100vw"
+          }}
+        >
+          {children}
+        </div>
+      </main>
       <footer
         className="overlay"
         style={{
