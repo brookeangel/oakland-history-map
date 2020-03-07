@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
         width: "100vw",
         display: "grid",
         gridTemplateColumns: "auto 40vw",
-        gridTemplateRows: "auto auto auto",
+        gridTemplateRows: "auto 1fr auto",
       }}
     >
       <Header 
