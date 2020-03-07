@@ -614,12 +614,20 @@ pre tt:after {
     font-size: 100%;
   }
 }
-.overlay {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
+h1, p {
+  margin: 0
+}
+.pad40 {
+  padding: 40px;
+}
+.pad20 {
+  padding: 20px;
+}
+.black-background {
+  background-color: #000;
   color: white;
 }
-.overlay a {
+.black-background a {
   color: white;
   text-decoration: none;
 }

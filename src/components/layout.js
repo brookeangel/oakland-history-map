@@ -47,38 +47,37 @@ const Layout = ({ children }) => {
   return (
     <div
       style={{
-        position: "relative",
+        height: "100vh",
+        width: "100vw",
+        display: "grid",
+        gridTemplateColumns: "auto 40vw",
+        gridTemplateRows: "auto auto auto",
       }}
     >
       <Header 
         siteTitle={data.site.siteMetadata.title} 
         siteDescription={data.site.siteMetadata.description} />
-      <main>
-        <OaklandMap style={{zIndex: 0}} sites={{sites}} />
-        <div
-          className="overlay"
-          style={{
-            zIndex: 1,
-            position: "absolute",
-            bottom: 0,
-            top: 0,
-            right: 0,
-            width: "30em",
-            maxWidth: "100vw"
-          }}
-        >
-          {children}
-        </div>
-      </main>
-      <footer
-        className="overlay"
+      <OaklandMap sites={{sites}} />
+      <div
+        className="pad40"
         style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-          left: 0,
+          gridColumnStart: 2,
+          gridColumnEnd: 3,
+          gridRowStart: 2,
+          gridRowEnd: 3,
+          overflow: "scroll",
+        }}
+      >
+        {children}
+      </div>
+      <footer
+        className="black-background pad20"
+        style={{
+          gridColumnStart: 1,
+          gridColumnEnd: 3,
+          gridRowStart: 3,
+          gridRowEnd: 4,
           textAlign: "right",
-          zIndex: 1,
         }}
       >
         © {new Date().getFullYear()}, {` `}

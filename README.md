@@ -12,7 +12,7 @@ To edit historical site content:
 
 ## To Do
 This project is a WIP. Here are some of the things remaining:
-- [ ] Improve style for browser
+- [x] Improve style for browser
 - [ ] Make styles usable on Mobile
 - [ ] Render markdown & sources for historical sites
 - [ ] Deploy to GH pages

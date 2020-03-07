@@ -18,12 +18,12 @@ class OaklandMap extends React.Component {
     const position = [37.8044, -122.2712]
     const zoom = 13;
     const styles = {
-      height: "100vh",
-      width: "100vw",
-      top: 0,
-      left: 0,
       position: "relative",
       zIndex: 0,
+      gridColumnStart: 1,
+      gridColumnEnd: 2,
+      gridRowStart: 2,
+      gridRowEnd: 3,
     };
     const sites = this.props.sites.sites;
     const markers = sites.map((site) => {

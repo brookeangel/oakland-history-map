@@ -8,7 +8,7 @@ export default function Template({ data }) {
   return (
     <Layout>
       <div>
-        <h1>{frontmatter.name}</h1>
+        <h2>{frontmatter.name}</h2>
         <p>{frontmatter.description}</p>
       </div>
     </Layout>

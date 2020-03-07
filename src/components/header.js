@@ -3,22 +3,24 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle, siteDescription }) => (
-  <header style={{ 
-    position: "absolute",
-    zIndex: "1",
-    top: "50px",
-    left: "50px",
-  }} >
-    <h1 className="overlay" 
-      style={{ 
-        margin: 0,
-        display: "inline-block",
-      }} >
+  <header 
+    className="black-background pad40"
+    style={{ 
+      gridColumnStart: 1,
+      gridColumnEnd: 3,
+      gridRowStart: 1,
+      gridRowEnd: 2,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between"
+    }}
+  >
+    <h1>
         <Link to="/">{siteTitle}</Link>
     </h1>
-    <p className="overlay" 
+    <p
       style={{
-        marginLeft: "60px",
+        marginLeft: "20px",
       }} >
     {siteDescription}
     </p>
