@@ -31,6 +31,9 @@ description: >-
   surveyed residents, and sought the services of a local landscape designer. A
   community block party in July 2006 celebrated the reopening of Bertha Port
   Park, a renewed gift to the West Oakland Community for the 21st century.
+
+
+  *Bay Trail informational sign*
 sources: >-
   From the sign near Bertha Port Park, marking historical locations along the
   Bay Trail.
