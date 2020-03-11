@@ -15,4 +15,5 @@ collections:
       - { name: startDate, label: Start Date, widget: date, required: false }
       - { name: endDate, label: End Date, widget: date, required: false }
       - { name: location, label: Location, widget: map }
+      - { name: image, label: Image, widget: image, required: false }
       - { name: body, label: Body, widget: markdown }
