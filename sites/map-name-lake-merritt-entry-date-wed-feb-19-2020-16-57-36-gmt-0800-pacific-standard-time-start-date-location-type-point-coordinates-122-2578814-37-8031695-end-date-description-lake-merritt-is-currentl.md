@@ -5,7 +5,8 @@ entryDate: 2020-02-20T01:58:26.382Z
 startDate: 2020-02-20T01:58:26.398Z
 endDate: 2020-02-20T01:58:26.409Z
 location: '{"type":"Point","coordinates":[-122.2578814,37.8031695]}'
-description: >-
+---
+
   Lake Merritt is currently a 155 acre recreational lake east of downtown
   Oakland, encircled by a 3.4 mile multi-use path.
 
@@ -46,8 +47,9 @@ description: >-
 
 
   The lake was designated an Oakland landmark in 1980.
-sources: >-
+
+## Sources:
   * LocalWiki Contributors, "Lake Merritt" *Oakland Wiki,* Local Wiki, 19
   February 2020, <https://localwiki.org/oakland/Lake_Merritt>.
----
+
 
