@@ -11,6 +11,9 @@ description: >-
   leader, lived here with his family.
 
 
+  *Bay Trail informational sign*
+
+
   More information on William Shorey can be found in [Oakland's
   LocalWiki](https://localwiki.org/oakland/William_Shorey).
 sources: >-
