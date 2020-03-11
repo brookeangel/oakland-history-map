@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import ReactMarkdown from "react-markdown"
 
 export default function Template({ data }) {
   const { markdownRemark } = data
@@ -9,7 +10,9 @@ export default function Template({ data }) {
     <Layout>
       <div>
         <h2>{frontmatter.name}</h2>
-        <p>{frontmatter.description}</p>
+        <ReactMarkdown source={frontmatter.description} />
+        <br />
+        <ReactMarkdown source={frontmatter.sources} />
       </div>
     </Layout>
   )
@@ -22,6 +25,7 @@ export const pageQuery = graphql`
         path
         entryDate
         description
+        sources
       }
     }
   }

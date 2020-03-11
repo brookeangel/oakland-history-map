@@ -13,8 +13,12 @@ To edit historical site content:
 ## To Do
 This project is a WIP. Here are some of the things remaining:
 - [x] Improve style for browser
-- [ ] Make styles usable on Mobile
-- [ ] Render markdown & sources for historical sites
+- [x] Add more historical sites!
+- [x] Render markdown & sources for historical sites
+- [ ] Swap map widget for address
+- [ ] Allow photo uploads
+- [ ] Allow filtering by date
+- [ ] Add content for index
 - [ ] Deploy to GH pages
 - [ ] Set up Travis CI
-- [ ] Add more historical sites!
+- [ ] Make styles usable on Mobile
