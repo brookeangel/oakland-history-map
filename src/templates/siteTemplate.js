@@ -5,14 +5,12 @@ import ReactMarkdown from "react-markdown"
 
 export default function Template({ data }) {
   const { markdownRemark } = data
-  const { frontmatter } = markdownRemark
+  const { frontmatter, html } = markdownRemark
   return (
     <Layout>
       <div>
         <h2>{frontmatter.name}</h2>
-        <ReactMarkdown source={frontmatter.description} />
-        <br />
-        <ReactMarkdown source={frontmatter.sources} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
   )
@@ -20,12 +18,11 @@ export default function Template({ data }) {
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
       frontmatter {
         name
         path
         entryDate
-        description
-        sources
       }
     }
   }
