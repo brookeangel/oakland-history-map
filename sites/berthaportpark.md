@@ -4,7 +4,11 @@ path: /berthaportpark
 entryDate: 2020-03-11T19:48:04.388Z
 startDate: 1947-11-27T08:00:00.000Z
 endDate: ''
-location: '{"type":"Point","coordinates":[-122.3022952,37.8079325]}'
+location:
+  address: bertha port park
+  coords:
+    - -122.30233483480825
+    - 37.8079501
 ---
 > Philip Joseph Port, a longtime resident of West Oakland, gave the land for   this park as a memorial to his wife. A native of Vermont who came to Oakland
 >   in the 1890s when he was not yet 20, Mr. Port worked for many years as a

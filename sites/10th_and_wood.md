@@ -4,7 +4,11 @@ path: /10th_and_wood
 entryDate: 2020-03-11T20:08:11.559Z
 startDate: 2013-01-01T08:00:00.000Z
 endDate: ''
-location: '{"type":"Point","coordinates":[-122.3004187,37.8103424]}'
+location:
+  address: '945 Wood St, Oakland, CA 94607'
+  coords:
+    - -122.30176187553786
+    - 37.811007599999996
 ---
 A cafe in West Oakland that serves eclectic American fusion food, such as the
   "Po-Mi" sandwich (Bahn Mi + Po Boy). The restaurant has been [noted as an   example of
