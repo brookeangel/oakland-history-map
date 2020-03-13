@@ -30,7 +30,9 @@ const Layout = ({ children }) => {
             frontmatter {
               path
               name
-              location
+              location {
+                coords
+              }
             }
           }
         }

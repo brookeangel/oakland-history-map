@@ -15,10 +15,11 @@ This project is a WIP. Here are some of the things remaining:
 - [x] Improve style for browser
 - [x] Add more historical sites!
 - [x] Render markdown & sources for historical sites
-- [ ] Swap map widget for address
-- [ ] Allow photo uploads
+- [x] Swap map widget for address
+- [x] Allow photo uploads
 - [ ] Allow filtering by date
 - [ ] Add content for index
 - [ ] Deploy to GH pages
 - [ ] Set up Travis CI
 - [ ] Make styles usable on Mobile
+- [ ] Don't reload map on every page change

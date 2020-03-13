@@ -27,14 +27,12 @@ class OaklandMap extends React.Component {
     };
     const sites = this.props.sites.sites;
     const markers = sites.map((site) => {
-      const coordinates = JSON.parse(site.location).coordinates;
-      // For some reason, Netlify switches Lat and Long from the rest of the world
-      const lat = coordinates[1];
-      const long = coordinates[0];
+      const lng = site.location.coords[0];
+      const lat = site.location.coords[1];
       return (
         <Marker 
           key={site.id} 
-          position={[lat, long]}
+          position={[lat, lng]}
           onMouseOver={(e) => { e.target.openPopup(); }}
           onFocus={(e) => { e.target.openPopup() }}
           onMouseOut={(e) => { e.target.closePopup(); }}
