@@ -4,7 +4,11 @@ path: /sites/lake-merritt
 entryDate: 2020-02-20T01:58:26.382Z
 startDate: 2020-02-20T01:58:26.398Z
 endDate: 2020-02-20T01:58:26.409Z
-location: '{"type":"Point","coordinates":[-122.2578814,37.8031695]}'
+location:
+  address: lake merritt
+  coords:
+    - -122.25624380468363
+    - 37.8046042
 ---
 
   Lake Merritt is currently a 155 acre recreational lake east of downtown
