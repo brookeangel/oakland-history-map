@@ -12,6 +12,7 @@ import Header from "../components/header"
 import OaklandMap from "../components/oaklandMap"
 import { useStaticQuery, graphql } from "gatsby"
 
+import 'typeface-roboto';
 import "./layout.css"
 
 const Layout = ({ activeSiteId, children }) => {
