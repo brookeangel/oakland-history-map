@@ -17,6 +17,7 @@ This project is a WIP. Here are some of the things remaining:
 - [x] Render markdown & sources for historical sites
 - [x] Swap map widget for address
 - [x] Allow photo uploads
+- [x] Highlight current marker
 - [ ] Allow filtering by date
 - [ ] Add content for index
 - [ ] Deploy to GH pages

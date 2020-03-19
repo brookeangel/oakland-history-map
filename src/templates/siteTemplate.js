@@ -4,9 +4,9 @@ import Layout from "../components/layout"
 
 export default function Template({ data }) {
   const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, id, html } = markdownRemark
   return (
-    <Layout>
+    <Layout activeSiteId={id}>
       <div>
         <h2>{frontmatter.name}</h2>
         <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -18,6 +18,7 @@ export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      id
       frontmatter {
         name
         path

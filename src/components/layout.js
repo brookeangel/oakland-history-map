@@ -14,7 +14,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ activeSiteId, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -59,7 +59,9 @@ const Layout = ({ children }) => {
       <Header 
         siteTitle={data.site.siteMetadata.title} 
         siteDescription={data.site.siteMetadata.description} />
-      <OaklandMap sites={{sites}} />
+      <OaklandMap
+        activeSiteId={activeSiteId} 
+        sites={{sites}} />
       <div
         className="pad40"
         style={{
