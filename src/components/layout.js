@@ -15,7 +15,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import 'typeface-roboto';
 import "./layout.css"
 
-const Layout = ({ activeSiteId, children }) => {
+const Layout = ({ activeSiteId, filter, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -31,6 +31,8 @@ const Layout = ({ activeSiteId, children }) => {
             frontmatter {
               path
               name
+              startDate
+              endDate
               location {
                 coords
               }
@@ -41,7 +43,19 @@ const Layout = ({ activeSiteId, children }) => {
     }
   `)
 
-  const sites = data.allMarkdownRemark.edges.map((edge) => {
+const sites = data.allMarkdownRemark.edges
+  .filter((edge) => {
+    if(!filter) { return true }
+    const start = edge.node.frontmatter.startDate ? new Date(edge.node.frontmatter.startDate).getFullYear() : null;
+    const end = edge.node.frontmatter.endDate ? new Date(edge.node.frontmatter.endDate).getFullYear() : null;
+    // TODO: pass in object for filter for clarity
+    const filterStart = filter[0];
+    const filterEnd = filter[1];
+    const startInRange = !start || start <= filterEnd;
+    const endInRange = !end || end >= filterStart;
+    return startInRange && endInRange;
+  })
+  .map((edge) => {
     return Object.assign(edge.node.frontmatter, {
       id: edge.node.id
     });

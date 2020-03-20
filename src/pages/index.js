@@ -10,7 +10,7 @@ class IndexPage extends React.Component {
     this.state = {yearRange: [1800,2020]};
     this.onChangeYears = this.onChangeYears.bind(this);
   }
-  
+
   onChangeYears(event, value) {
     this.setState({
       yearRange: value
@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
     ];
 
     return(
-      <Layout>
+      <Layout filter={this.state.yearRange}>
         <SEO title="Home" />
         <Typography id="year-slider" gutterBottom>
           Year Range
