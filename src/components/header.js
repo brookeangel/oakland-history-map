@@ -6,10 +6,10 @@ const Header = ({ siteTitle, siteDescription }) => (
   <header 
     className="black-background pad40"
     style={{ 
-      gridColumnStart: 1,
-      gridColumnEnd: 3,
       gridRowStart: 1,
       gridRowEnd: 2,
+      gridColumnStart: 1,
+      gridColumnEnd: 3,
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between"

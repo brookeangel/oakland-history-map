@@ -11,21 +11,19 @@ export class AddressControl extends Component {
   }
 
   getAddress() {
-    return this.props.value ? this.props.value.address : "";
+    return this.props.value ? this.props.value.get('address') : "";
+  }
+
+  getCoords() {
+    return this.props.value ? this.props.value.get('coords') : "";
   }
 
   updateAddress(e) {
-    this.props.onChange({
-      address: e.target.value,
-      coords: null,
-    });
+    this.props.onChange((this.props.value || Map()).set('address', e.target.value))
   }
 
   updateCoords(coords) {
-    this.props.onChange({
-      address: this.props.value.address,
-      coords: coords,
-    });
+    this.props.onChange((this.props.value || Map()).set('coords', coords))
   }
 
   fetchGeodata() {
@@ -37,6 +35,7 @@ export class AddressControl extends Component {
         return response.json();
       })
       .then(function(data) {
+        // TODO: the first feature doesn't always exist - needs error handling
         const coords = data.features[0].geometry.coordinates;
         updateCoords(coords);
       })
@@ -56,32 +55,38 @@ export class AddressControl extends Component {
       outline: "0px",
     }
     return(
-      <div style={{
-        display: "flex"
-      }}>
-        <input type="text" 
-          onChange={this.updateAddress}
-          value={this.getAddress()}
-          style={Object.assign(sharedStyles, {
-            flexGrow: 1,
-            borderRadius: "0px 5px 5px",
-          })}></input>
-        <button 
-          onClick={this.fetchGeodata}
-          style={Object.assign(sharedStyles, {
-            borderRadius: "5px",
-            cursor: "pointer",
-          })}>Check Address</button>
+      <div>
+        <div style={{
+          display: "flex"
+        }}>
+          <input type="text" 
+            onChange={this.updateAddress}
+            value={this.getAddress()}
+            style={Object.assign(sharedStyles, {
+              flexGrow: 1,
+              borderRadius: "0px 5px 5px",
+            })}></input>
+          <button 
+            onClick={this.fetchGeodata}
+            style={Object.assign(sharedStyles, {
+              borderRadius: "5px",
+              cursor: "pointer",
+            })}>Fetch Coordinates</button>
+        </div>
+        Coords: {this.getCoords().join(', ')}
       </div>
     );
   }
 }
 
 export const AddressPreview = props => {
+  // Never previews, bug with Netlfy CMS: https://github.com/netlify/netlify-cms/issues/2150
+  if(!props.value) { return '' }
+
   return(
     <div>
-      <p>Address: {props.value.address}</p>
-      <p>Geodata: {props.value.coords}</p>
+      <p>Address: {props.value.get('address')}</p>
+      <p>Geodata: {props.value.get('coords')}</p>
     </div>
   );
 };

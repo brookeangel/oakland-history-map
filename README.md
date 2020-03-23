@@ -18,8 +18,8 @@ This project is a WIP. Here are some of the things remaining:
 - [x] Swap map widget for address
 - [x] Allow photo uploads
 - [x] Highlight current marker
-- [ ] Allow filtering by date
-- [ ] Add content for index
+- [x] Allow filtering by date
+- [x] Fix admin
 - [ ] Deploy to GH pages
 - [ ] Set up Travis CI
 - [ ] Make styles usable on Mobile

@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import 'leaflet/dist/leaflet.css'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import { navigate } from "gatsby"
@@ -14,19 +15,6 @@ L.Icon.Default.mergeOptions({
     
 });
 
-const inactiveIcon = L.icon({
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  iconSize:     [25, 35],
-    
-});
-
-// TODO: use more attractive icon
-const activeIcon = L.icon({
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  iconSize:     [50, 70],
-    
-});
-
 class OaklandMap extends React.Component { 
   render() {
     const position = [37.8044, -122.2712]
@@ -34,20 +22,19 @@ class OaklandMap extends React.Component {
     const styles = {
       position: "relative",
       zIndex: 0,
+      width: '100%',
+      height: '100%',
       gridColumnStart: 1,
       gridColumnEnd: 2,
       gridRowStart: 2,
       gridRowEnd: 3,
     };
-    const sites = this.props.sites.sites;
-    const activeSiteId = this.props.activeSiteId;
+    const sites = this.props.sites;
     const markers = sites.map((site) => {
       const lng = site.location.coords[0];
       const lat = site.location.coords[1];
-      const isActive = site.id === activeSiteId;
       return (
         <Marker 
-          icon={isActive ? activeIcon : inactiveIcon }
           key={site.id} 
           position={[lat, lng]}
           onMouseOver={(e) => { e.target.openPopup(); }}
@@ -72,6 +59,17 @@ class OaklandMap extends React.Component {
       </Map>
     );
   }
+}
+
+OaklandMap.propTypes = {
+  sites: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+      location: PropTypes.object.isRequired,
+    })
+  ).isRequired,
 }
 
 export default OaklandMap;
