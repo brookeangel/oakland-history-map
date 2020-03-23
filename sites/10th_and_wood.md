@@ -5,7 +5,7 @@ entryDate: 2020-03-11T20:08:11.559Z
 startDate: 2013-01-01T08:00:00.000Z
 endDate: ''
 location:
-  address: '945 Wood St, Oakland, CA 94607'
+  address: 10th and Wood
   coords:
     - -122.30176187553786
     - 37.811007599999996
