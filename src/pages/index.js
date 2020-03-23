@@ -5,10 +5,14 @@ import SEO from "../components/seo"
 import OaklandMap from "../components/oaklandMap"
 import { Slider, Typography } from '@material-ui/core';
 
+function getYear(date) {
+  return date ? new Date(date).getFullYear() : null;
+}
+
 class IndexPage extends React.Component { 
   constructor(props) {
     super(props);
-    this.state = {yearRange: [1800,2020]};
+    this.state = {yearRange: this.getRange()};
     this.onChangeYears = this.onChangeYears.bind(this);
     this.filteredSites = this.filteredSites.bind(this);
   }
@@ -17,6 +21,19 @@ class IndexPage extends React.Component {
     this.setState({
       yearRange: value
     });
+  }
+
+  getRange() {
+    const starts = this.props.data.allMarkdownRemark.edges.map((edge) => {
+      return getYear(edge.node.frontmatter.startDate);
+    }).filter(el => Boolean(el));
+    const min = Math.min(...starts);
+    const ends = this.props.data.allMarkdownRemark.edges.map((edge) => {
+      return getYear(edge.node.frontmatter.endDate);
+    }).filter(el => Boolean(el));
+    const max = Math.max(...ends);
+
+    return [min, max];
   }
 
   filteredSites() {
@@ -42,19 +59,13 @@ class IndexPage extends React.Component {
 
 
   render() {
-    const min=1800;
-    const max=2020;
-    const marks = [
-      {
-        value: 1800,
-        label: '1800',
-      },
-      {
-        value: 2020,
-        label: '2020',
-      },
-    ];
-
+    const range = this.getRange();
+    const marks = range.map((el) => {
+      return { 
+        value: el,
+        label: el.toString(),
+      };
+    });
     return(
       <Layout filter={this.state.yearRange}>
         <SEO title="Home" />
@@ -85,8 +96,8 @@ class IndexPage extends React.Component {
               value={this.state.yearRange}
               aria-labelledby="year-slider"
               step={1}
-              min={min}
-              max={max}
+              min={range[0]}
+              max={range[1]}
               valueLabelDisplay="auto"
               onChange={this.onChangeYears}
               marks={marks}
