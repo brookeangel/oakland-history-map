@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/oakland-history-map`,
   siteMetadata: {
     title: `Oakland History Map`,
     description: `Understanding Oakland's present through its past`,
