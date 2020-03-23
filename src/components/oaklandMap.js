@@ -17,7 +17,7 @@ L.Icon.Default.mergeOptions({
 
 class OaklandMap extends React.Component { 
   render() {
-    const position = [37.8044, -122.2712]
+    const position = this.props.center;
     const zoom = 13;
     const styles = {
       position: "relative",
@@ -70,6 +70,7 @@ OaklandMap.propTypes = {
       location: PropTypes.object.isRequired,
     })
   ).isRequired,
+  center: PropTypes.arrayOf(PropTypes.number).isRequired,
 }
 
 export default OaklandMap;

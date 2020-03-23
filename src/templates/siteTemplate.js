@@ -10,6 +10,10 @@ export default function Template({ data }) {
   const start = startDate ? new Date(startDate).getFullYear() : 'unknown';
   const end = endDate ? new Date(endDate).getFullYear() : 'present';
   const site = Object.assign(frontmatter, { id });
+  const center = [ 
+    site.location.coords[1],
+    site.location.coords[0]
+  ];
   return (
     <Layout>
       <div
@@ -20,7 +24,9 @@ export default function Template({ data }) {
           gridRowEnd: 3,
         }}
       >
-        <OaklandMap sites={[site]} />
+        <OaklandMap 
+          center={center}
+          sites={[site]} />
       </div>
       <div
         className='pad40'
