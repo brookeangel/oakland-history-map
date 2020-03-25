@@ -20,7 +20,7 @@ This project is a WIP. Here are some of the things remaining:
 - [x] Highlight current marker
 - [x] Allow filtering by date
 - [x] Fix admin
-- [ ] Deploy to GH pages
-- [ ] Set up Travis CI
+- [x] Deploy to GH pages
+- [x] Set up Travis CI
+- [ ] Make Netlify CMS work on prod
 - [ ] Make styles usable on Mobile
-- [ ] Don't reload map on every page change
