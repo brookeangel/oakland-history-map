@@ -78,9 +78,14 @@ class IndexPage extends React.Component {
           width: '100%',
           height: '100%',
         }}>
-        <OaklandMap 
-          center={[37.8044, -122.2712]}
-          sites={this.filteredSites()} />
+          <div style={{
+            width: '100%',
+            height: '100%',
+          }}>
+            <OaklandMap 
+              center={[37.8044, -122.2712]}
+              sites={this.filteredSites()} />
+          </div>
           <div style={{
             position: 'absolute',
             right: 0,

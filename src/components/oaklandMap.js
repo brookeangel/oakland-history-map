@@ -31,10 +31,6 @@ function OaklandMap({sites, center}) {
     zIndex: 0,
     width: '100%',
     height: '100%',
-    gridColumnStart: 1,
-    gridColumnEnd: 2,
-    gridRowStart: 2,
-    gridRowEnd: 3,
   };
   const markers = sites.map((site) => {
     const lng = site.location.coords[0];
