@@ -1,6 +1,9 @@
 backend:
   name: github
   repo: brookeangel/oakland-history-map
+  branch: master
+  base_url: https://us-central1-oakland-history-map-oauth.cloudfunctions.net
+  auth_endpoint: /oauth/auth
 media_folder: static/assets
 public_folder: /assets
 collections:
